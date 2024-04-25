@@ -7,8 +7,6 @@ module.exports = class PasswordGuesser {
     this.passcode = passcode;
     this.numbers = "0123456789";
     this.letters = "abcdefghijklmnopqrstuvwxyz";
-
-    this.type = "";
   }
 
   guess() {
@@ -19,7 +17,6 @@ module.exports = class PasswordGuesser {
         return false;
       }
     }
-    this.type = this.numbers.includes(this.passcode) ? "number" : "word";
 
     this.find(this.passcode.length, "");
   }
@@ -34,7 +31,7 @@ module.exports = class PasswordGuesser {
       return false;
     }
 
-    if (this.type == "word") {
+    if (this.letters.includes(this.passcode.charAt(0))) {
       for (let i = 0; i < this.letters.length; i++) {
         if (this.find(length - 1, current + this.letters[i])) {
           return true;

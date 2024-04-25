@@ -6,7 +6,7 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-rl.question("What's the secret passcode?\n", (c) => {
+rl.question("Password to find:\n", (c) => {
   let guesser = new PasswordGuesser(c);
   guesser.guess();
   rl.close();
